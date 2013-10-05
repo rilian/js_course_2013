@@ -1,5 +1,11 @@
 <h1>Contacts</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.text_field :name_or_surname_or_email_or_phone_or_group_name_cont %>
+  <%= f.select :group_name_eq, Group.all.map(&:name) %>
+  <%= f.submit %>
+<% end %>
+
 <%= link_to 'Create Contact', new_contact_path %>
 
 <table>
@@ -14,16 +20,16 @@
   </tr>
   <% @contacts.each do |contact| %>
     <tr>
-      <th><%= contact.id %></th>
-      <th><%= contact.name %></th>
-      <th><%= contact.surname %></th>
-      <th><%= contact.email %></th>
-      <th><%= contact.phone %></th>
-      <th><%= contact.group_name %></th>
-      <th>
+      <td><%= contact.id %></td>
+      <td><%= contact.name %></td>
+      <td><%= contact.surname %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.phone %></td>
+      <td><%= contact.group_name %></td>
+      <td>
         <%= link_to 'Edit', edit_contact_path(contact) %>
-        <%= link_to 'Delete', contact_path(contact), method: :delete %>
-      </th>
+        <%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: 'Are you sure ?' } %>
+      </td>
     </tr>
   <% end %>
 </table>

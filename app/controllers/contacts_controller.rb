@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    @q = Contact.search(params[:q])
+    @contacts = @q.result
   end
 
   def new

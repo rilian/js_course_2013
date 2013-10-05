@@ -10,12 +10,12 @@
   </tr>
   <% @groups.each do |group| %>
     <tr>
-      <th><%= group.id %></th>
-      <th><%= group.name %></th>
-      <th>
+      <td><%= group.id %></td>
+      <td><%= group.name %></td>
+      <td>
         <%= link_to 'Edit', edit_group_path(group) %>
         <%= link_to 'Delete', group_path(group), method: :delete %>
-      </th>
+      </td>
     </tr>
   <% end %>
 </table>
