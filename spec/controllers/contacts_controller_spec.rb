@@ -15,6 +15,15 @@ describe ContactsController do
     end
   end
 
+  describe 'GET new' do
+    it 'assigns empty Contact' do
+      get :new
+
+      response.status.should eq 200
+      expect(assigns(:contact).class).to eq Contact
+    end
+  end
+
   describe 'POST create' do
     it 'creates Contact' do
       post :create, { contact: { name: 'a', surname: 'b', email: 'c@example.com', phone: '0' } }
@@ -22,6 +31,19 @@ describe ContactsController do
       response.should redirect_to contacts_path
       expect(Contact.count).to eq 1
       expect(Contact.first.name).to eq 'a'
+    end
+  end
+
+  describe 'GET edit' do
+    before do
+      @contact = Contact.create(name: 'a', surname: 'b', email: 'c@example.com', phone: '0')
+    end
+
+    it 'assigns existing Contact' do
+      get :edit, id: @contact.id
+
+      response.status.should eq 200
+      expect(assigns(:contact)).to eq @contact
     end
   end
 
