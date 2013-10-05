@@ -3,7 +3,7 @@ JS Course test project
 
 Application represents an Address Book with grouped contacts
 
-travis build, code climate, coveralls
+[![Build Status](https://travis-ci.org/rilian/js_course_2013.png?branch=master)](https://travis-ci.org/rilian/js_course_2013) [![Coverage Status](https://coveralls.io/repos/rilian/js_course_2013/badge.png)](https://coveralls.io/r/rilian/js_course_2013)
 
 Functional requirements
 -----------------------
