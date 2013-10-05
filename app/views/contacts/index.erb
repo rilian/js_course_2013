@@ -1,0 +1,29 @@
+<h1>Contacts</h1>
+
+<%= link_to 'Create Contact', new_contact_path %>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Group</th>
+    <th>Actions</th>
+  </tr>
+  <% @contacts.each do |contact| %>
+    <tr>
+      <th><%= contact.id %></th>
+      <th><%= contact.name %></th>
+      <th><%= contact.surname %></th>
+      <th><%= contact.email %></th>
+      <th><%= contact.phone %></th>
+      <th><%= contact.group_name %></th>
+      <th>
+        <%= link_to 'Edit', edit_contact_path(contact) %>
+        <%= link_to 'Delete', contact_path(contact), method: :delete %>
+      </th>
+    </tr>
+  <% end %>
+</table>

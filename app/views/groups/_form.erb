@@ -1,0 +1,9 @@
+<%= form_for @group do |f| %>
+  <div>
+    <label for="group_name">Name
+      <%= f.text_field :name %>
+    </label>
+  </div>
+
+  <%= f.submit value: (@group.persisted? ? 'Update Group' : 'Create Group') %>
+<% end %>
