@@ -44,7 +44,6 @@ GEM
       term-ansicolor
       thor
     daemons (1.1.9)
-    database_cleaner (1.1.1)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -55,11 +54,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     hike (1.2.3)
     i18n (0.6.5)
     jquery-rails (3.0.4)
@@ -167,9 +161,7 @@ DEPENDENCIES
   cancan
   coffee-rails
   coveralls
-  database_cleaner
   devise
-  factory_girl_rails
   jquery-rails
   pg
   quiet_assets
