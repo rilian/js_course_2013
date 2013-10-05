@@ -1,0 +1,23 @@
+# configuration settings for http://travis-ci.org
+
+language: ruby
+
+rvm:
+  - 2.0.0
+
+before_install:
+  - gem install bundler
+
+bundler_args: --without development assets
+
+before_script:
+  - "bundle exec rake db:create db:migrate ; RAILS_ENV=test rake db:migrate"
+
+script: TRAVIS=1 bundle exec rspec spec
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
