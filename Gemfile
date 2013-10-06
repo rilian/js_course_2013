@@ -14,7 +14,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 
 group :production do
-  gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
