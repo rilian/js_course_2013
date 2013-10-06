@@ -53,9 +53,9 @@ describe ContactsController do
     end
 
     it 'updates Contact' do
-      put :update, { id: @contact.id, contact: { name: 'b' } }
+      xhr :put, :update, { id: @contact.id, contact: { name: 'b' } }
 
-      response.should redirect_to contacts_path
+      expect(response.status).to eq 200
       expect(Contact.count).to eq 1
       expect(Contact.first.name).to eq 'b'
     end
@@ -67,9 +67,9 @@ describe ContactsController do
     end
 
     it 'deletes Contact' do
-      delete :destroy, { id: @contact.id }
+      xhr :delete, :destroy, { id: @contact.id }
 
-      response.should redirect_to contacts_path
+      expect(response.status).to eq 200
       expect(Contact.count).to eq 0
     end
   end
