@@ -1,21 +1,7 @@
-<h1>Groups</h1>
+<div id="entities_list">
+  <%= render 'groups' %>
+</div>
 
-<%= link_to 'Create Group', new_group_path %>
-
-<table>
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>Actions</th>
-  </tr>
-  <% @groups.each do |group| %>
-    <tr>
-      <td><%= group.id %></td>
-      <td><%= group.name %></td>
-      <td>
-        <%= link_to 'Edit', edit_group_path(group) %>
-        <%= link_to 'Delete', group_path(group), method: :delete %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div id="entity_form">
+  <%= render 'form' %>
+</div>

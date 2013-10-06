@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
+  before_filter :load_groups
+
   def index
-    @groups = Group.all
   end
 
   def new
@@ -11,9 +12,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to groups_path
-    else
-      render :new
+      @groups = Group.all
     end
   end
 
@@ -25,21 +24,23 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if @group.update(group_params)
-      redirect_to groups_path
-    else
-      render :edit
+      @groups = Group.all
     end
   end
 
   def destroy
     Group.find(params[:id]).delete
-
-    redirect_to groups_path
+    @groups = Group.all
   end
 
   private
 
   def group_params
     params.require(:group).permit(:name, :surname, :email, :phone, :group_id)
+  end
+
+  def load_groups
+    @groups = Group.all
+    @group = Group.new
   end
 end

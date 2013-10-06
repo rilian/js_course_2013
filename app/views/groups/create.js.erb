@@ -1,0 +1,7 @@
+<% if @group.errors.any? %>
+  $("#group_errors").html("<%= escape_javascript(@group.errors.full_messages.join('; '))%>");
+<% else %>
+  $("#group_errors").hide();
+  $("#entity_form").hide();
+  $("#entities_list").html("<%= escape_javascript(render('groups')) %>");
+<% end %>

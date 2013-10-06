@@ -1,0 +1,25 @@
+<h2>
+  All Groups
+</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.id %></td>
+        <td><%= group.name %></td>
+        <td>
+          <%= link_to 'Edit', edit_group_path(group), remote: true %>
+          <%= link_to 'Delete', group_path(group), method: :delete, remote: true, data: { confirm: 'Are you sure ?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create Group', new_group_path, remote: true %>

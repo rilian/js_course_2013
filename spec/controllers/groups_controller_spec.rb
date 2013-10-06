@@ -10,7 +10,7 @@ describe GroupsController do
     it 'renders existing groups' do
       get :index
 
-      response.status.should == 200
+      expect(response.status).to eq 200
       expect(assigns(:groups)).to match_array([@group_1, @group_2])
     end
   end
@@ -19,16 +19,16 @@ describe GroupsController do
     it 'assigns empty Group' do
       get :new
 
-      response.status.should eq 200
+      expect(response.status).to eq 200
       expect(assigns(:group).class).to eq Group
     end
   end
 
   describe 'POST create' do
     it 'creates Group' do
-      post :create, { group: { name: 'a' } }
+      xhr :post, :create, { group: { name: 'a' } }
 
-      response.should redirect_to groups_path
+      expect(response.status).to eq 200
       expect(Group.count).to eq 1
       expect(Group.first.name).to eq 'a'
     end
@@ -42,7 +42,7 @@ describe GroupsController do
     it 'assigns existing Group' do
       get :edit, id: @group.id
 
-      response.status.should eq 200
+      expect(response.status).to eq 200
       expect(assigns(:group)).to eq @group
     end
   end
@@ -53,9 +53,9 @@ describe GroupsController do
     end
 
     it 'updates Group' do
-      put :update, { id: @group.id, group: { name: 'b' } }
+      xhr :put, :update, { id: @group.id, group: { name: 'b' } }
 
-      response.should redirect_to groups_path
+      expect(response.status).to eq 200
       expect(Group.count).to eq 1
       expect(Group.first.name).to eq 'b'
     end
@@ -67,9 +67,9 @@ describe GroupsController do
     end
 
     it 'deletes Group' do
-      delete :destroy, { id: @group.id }
+      xhr :delete, :destroy, { id: @group.id }
 
-      response.should redirect_to groups_path
+      expect(response.status).to eq 200
       expect(Group.count).to eq 0
     end
   end

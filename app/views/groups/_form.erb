@@ -1,4 +1,12 @@
-<%= form_for @group do |f| %>
+<h2>
+  <%= @group.persisted? ? 'Update Group' : 'Create Group' %>
+</h2>
+
+<%= form_for @group, remote: true do |f| %>
+  <div id="group_errors">
+    <%= f.object.errors.full_messages.join('. ') if f.object && f.object.errors.any? %>
+  </div>
+
   <div>
     <label for="group_name">Name
       <%= f.text_field :name %>
