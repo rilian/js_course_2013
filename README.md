@@ -21,3 +21,13 @@ Additional requirements (optional)
 * It should have client side and server side validation.
 * It should have user authentication solution and a user should only have access to their own contacts.
 * It should have automated tests for all functionality.
+
+Deploying to Heroku
+-------------------
+
+```
+git remote add heroku git@heroku.com:js-course-2013-rilian.git
+git push heroku master
+```
+
+open http://js-course-2013-rilian.herokuapp.com/
