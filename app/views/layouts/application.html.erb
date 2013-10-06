@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<%= link_to 'Contacts', contacts_path %> |
-<%= link_to 'Groups', groups_path %>
+<%= link_to 'Contacts', contacts_path, remote: true %> |
+<%= link_to 'Groups', groups_path, remote: true %>
 <hr>
 
 <%= yield %>

@@ -2,6 +2,6 @@
   $("#contact_errors").html("<%= escape_javascript(@contact.errors.full_messages.join('; '))%>");
 <% else %>
   $("#contact_errors").hide();
-  $("#contact_form").hide(1);
+  $("#contact_form").hide();
   $("#contacts_list").html("<%= escape_javascript(render('contacts')) %>");
 <% end %>
