@@ -6,8 +6,6 @@ gem 'rails'
 gem 'sqlite3'
 gem 'ransack'
 gem 'pg'
-gem 'devise'
-gem 'cancan'
 #gem 'therubyracer', platforms: :ruby
 
 # Frontend
