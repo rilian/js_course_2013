@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_filter :load_contacts
+
   def index
     @q = Contact.search(params[:q])
     @contacts = @q.result
@@ -26,21 +28,23 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
 
     if @contact.update(contact_params)
-      redirect_to contacts_path
-    else
-      render :edit
+      @contacts = Contact.all
     end
   end
 
   def destroy
     Contact.find(params[:id]).delete
-
-    redirect_to contacts_path
+    @contacts = Contact.all
   end
 
   private
 
   def contact_params
     params.require(:contact).permit(:name, :surname, :email, :phone, :group_id)
+  end
+
+  def load_contacts
+    @contacts = Contact.all
+    @contact = Contact.new
   end
 end
