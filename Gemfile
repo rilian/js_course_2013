@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails'
 
 # Backend
-gem 'sqlite3'
 gem 'ransack'
 gem 'pg'
 #gem 'therubyracer', platforms: :ruby

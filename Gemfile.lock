@@ -119,7 +119,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     thin (1.6.0)
@@ -157,7 +156,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
-  sqlite3
   thin
   uglifier
   unicorn
