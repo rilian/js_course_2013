@@ -1,6 +1,6 @@
 <% if @contact.errors.any? %>
-  $("#contact_errors").html("<%= escape_javascript(error_messages_for(@contact))%>");
+  $("#contact_errors").html("<%= escape_javascript(@contact.errors.full_messages.join('; '))%>");
 <% else %>
-  $(":input:not(input[type=submit])").val("");
+  $("#contact_form").hide();
   $("#contacts_list").html("<%= escape_javascript(render('contacts')) %>");
 <% end %>
