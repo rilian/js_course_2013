@@ -3,7 +3,7 @@
 </h2>
 
 <%= form_for @contact, remote: true do |f| %>
-  <div id="contact_errors"><!-- style="display:none" -->
+  <div id="contact_errors">
     <%= f.object.errors.full_messages.join('. ') if f.object && f.object.errors.any? %>
   </div>
 

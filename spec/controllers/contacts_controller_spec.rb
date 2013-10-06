@@ -10,7 +10,7 @@ describe ContactsController do
     it 'renders existing contacts' do
       get :index
 
-      response.status.should == 200
+      expect(response.status).to eq 200
       expect(assigns(:contacts)).to match_array([@contact_1, @contact_2])
     end
   end

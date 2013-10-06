@@ -1,0 +1,9 @@
+<h2>
+  Search Contacts
+</h2>
+
+<%= search_form_for @q, remote: true do |f| %>
+  <%= f.text_field :name_or_surname_or_email_or_phone_or_group_name_cont %>
+  <%= f.select :group_name_eq, [''] + Group.all.map(&:name) %>
+  <%= f.submit %>
+<% end %>

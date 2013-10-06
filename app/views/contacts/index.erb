@@ -1,19 +1,11 @@
-<h1>Contacts</h1>
+<div id="entity_search_form">
+  <%= render 'search_form' %>
+</div>
 
-<h2>
-  Search Contacts
-</h2>
-
-<%= search_form_for @q, remote: true do |f| %>
-  <%= f.text_field :name_or_surname_or_email_or_phone_or_group_name_cont %>
-  <%= f.select :group_name_eq, [''] + Group.all.map(&:name) %>
-  <%= f.submit %>
-<% end %>
-
-<div id="contacts_list">
+<div id="entities_list">
   <%= render 'contacts' %>
 </div>
 
-<div id="contact_form">
+<div id="entity_form">
   <%= render 'form' %>
 </div>
